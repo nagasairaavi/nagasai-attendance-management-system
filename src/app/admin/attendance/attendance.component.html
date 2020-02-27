@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-5 jumbotron">
+        <form #formRef="ngForm" (ngSubmit)="attendanceData(formRef.value)">
+            <div class="form-group">
+                <b>choose year</b><br>
+                <select name="year"  ngModel id="year">
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <b>choose Branch</b><br>
+                <select name="branch" class="form-control" ngModel>
+                    <option value=""></option>
+                    <option value="civil">CIVIL</option>
+                    <option value="mechanical">MECHANICAL</option>
+                    <option value="ece">ECE</option>
+                    <option value="cse">CSE</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="myFile">upload attendance sheet</label>
+                <input type="file" name="attendence" class="form-control"
+                (change)="fileUpload($event)" ngModel>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-success"><b>submit</b></button>
+            </div>
+        </form>
+        
+    </div>
+    <div class="col-7">
+        <div class="table">
+            <thead>
+                <th>year</th>
+                <th>branch</th>
+                <th>student id</th>
+                <th>date</th>
+                <th>attendance</th>
+            </thead>
+            <tr *ngFor ="let i of this.attendence">
+                <td>{{i.year}}</td>
+                <td>{{i.branch}}</td>
+                <td>{{i.studentid}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.attendance}}</td>
+            </tr>
+        </div>
+    </div>
+</div>

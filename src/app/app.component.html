@@ -1,0 +1,123 @@
+<!-- <ngx-spinner  bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type="ball-scale-multiple"
+>
+<p style="font-size: 20px; color: white"> Loading...</p>></ngx-spinner> -->
+<div class="container-fluid-sm"> 
+  <nav class="navbar navbar-expand-sm navbar-fixed bg-dark navbar-dark ">
+    <!-- Brand -->
+    <div class="navbar-brand">
+      <img src="../assets/logo.jpg" alt="logo" height="45px0" width="75px">
+    </div>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="home"> <i class="fa fa-fw fa-home"></i> Home</a>
+        </li>
+         <!-- Dropdown -->
+       <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fas fa-university"></i> Departments</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" style="background: linear-gradient(90deg, #e9e6e7 0%, #f0ebe1 100%);" routerLink="civil">CIVIL</a>
+          <a class="dropdown-item" style="background: linear-gradient(90deg, rgb(226, 226, 223) 0%, rgb(204, 206, 206) 100%);" routerLink="mechanical">MECHANICAL</a>
+          <a class="dropdown-item" style="background: linear-gradient(90deg, rgb(233, 232, 231) 0%, rgb(230, 233, 233) 100%);" routerLink="ece">ECE</a>
+          <a class="dropdown-item" style="background: linear-gradient(90deg, rgb(236, 237, 240) 0%, rgb(231, 233, 236) 100%);" routerLink="cse">CSE</a>
+        </div>
+      </li>
+        <li class="nav-item">
+          <a  class="nav-link" routerLink="aboutus"> <i class="fas fa-users"></i> About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="contactus"> <i class="fa fa-fw fa-envelope"></i> Contact us</a>
+        </li>
+        <li class="nav-item"  *ngIf="!cs.loggedinstatus">
+          <a class="nav-link" routerLink="login"> <i class="fa fa-fw fa-user"></i> Login</a>
+        </li>
+        <li class="nav-item" *ngIf="cs.loggedinstatus">
+          <a class="nav-link"  (click)="logout()"> <i class="fa fa-fw fa-user"> </i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <footer class="ftco-footer ftco-section">
+    <div class="container-fluid">
+        <div class="row mb-5">
+            <div class="col-md">
+                <img src="../assets/logo.jpg" alt="" height="150px" width="150px">
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h5 class="ftco-heading-2">About Website</h5>
+                    <p>FIU UNIVERSITY is committed to making it's website accessible to all users.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5" size>
+                        <li class="ftco-animate"><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fab fa-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fab fa-instagram "></span></a></li>
+                        <!-- <li class="ftco-animate"><a href="#"><span class="fas fa-envelope"></span></a></li> -->
+                    </ul>
+                      
+                </div>
+                
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-d ml-md-4">
+                    <h5 class="ftco-heading-2">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Help Center</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Campus Safety</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Library</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>FeedBack</a></li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h5 class="ftco-heading-2">Services</h5>
+                    <ul class="list-unstyled" style="color: gray;">
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Bookstore</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Transportation</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Fee & Payment</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Accommodations</a></li>
+                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>HR Oppurtunities</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h5 class="ftco-heading-2">Have A Question?</h5>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="fas fa-map-marker-alt"></span><span class="text"> FIU university,Thimmapur,Karimnagar, Telangana, India.</span></li>
+                            <li><a href="#"><span class="fas fa-phone"></span><span class="text"> +91 9000000009</span></a></li>
+                            <li><a href="#"><span class="far fa-envelope"></span><span class="text"> info@fiu.com</span></a></li>
+                        </ul>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>Copyright &copy;<script type="document.write(newData().getFullYear());"></script> All Rights Reserved 2020.</p>
+            </div>
+
+        </div>
+    </div>
+</footer>

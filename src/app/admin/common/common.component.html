@@ -1,0 +1,267 @@
+<div class="row"> 
+ <div class="col-3">
+    <div class="text-left">
+        <button  class="btn btn-success"data-target="#m1" data-toggle="modal" > <i class="fas fa-user"></i> Register Student</button>
+    </div>
+    <input
+type="search"
+placeholder="Search By firstname"
+class="form-control mt-5"
+[(ngModel)]="commonTerm" >
+    <div class="modal" id="m1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  Register Student
+                  <button class="close" data-dismiss="modal" class="btn btn-danger">X</button>
+              </div>
+              <div class="modal-body">
+                <div class="container jumbotron">
+                  <h3 class="text-info">Registration Form</h3>
+                  <form #ref="ngForm" (ngSubmit)="registerStudent(ref.value);ref.reset()">
+                      <div class="form-group">
+                          <label for="fn">FirstName</label>
+                          <input type="text" name="firstname" #ref1="ngModel" id="fn" autocomplete="off" class="form-control"  required   ngModel>
+                          <div *ngIf=" ref1.touched && ref1.invalid " class="alert text-danger">
+                              *Firstname is Required 
+                          </div>
+                      </div>   
+                      <div class="form-group">
+                          <label for="ln">LastName</label>
+                          <input type="text" name="lastname" id="ln"#ref2="ngModel" autocomplete="off" class="form-control"   ngModel>  
+                          <div *ngIf=" ref1.touched && ref1.invalid " class="alert text-danger">
+                            *Lastname is Required 
+                          </div>
+                      </div>    
+                      <div class="form-check">
+                          <label for="" class="form-check-label">Gender</label> <br> 
+                          <input type="radio" name="gender" id="g1" value="male" #ref4="ngModel" class="form-check-input" required  ngModel>
+                          <label for="g1" class="form-check-label">Male</label><br>
+                          <input type="radio" name="gender" id="g2" value="female" #ref4="ngModel" class="form-check-input" required  ngModel>
+                          <label for="g2" class="form-check-label">Female</label><br>
+                          <div *ngIf=" ref4.touched && ref4.invalid " class="alert text-danger">*Gender is Required 
+                          </div>
+                       </div> 
+                       <div class="form-group">
+                          <label for="ph">Phone Number</label>
+                          <input type="number" name="mobile" id="ph" autocomplete="off" #ref5="ngModel" class="form-control" required pattern="\d\d\d\d\d\d\d\d\d\d" ngModel>  
+                          <div *ngIf=" ref5.touched && ref5.invalid " class="alert text-danger">*PhoneNumber Must contain 10 Digits 
+                          </div>
+                      </div>
+                      <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                          <label for="email" class="control-label">E-Mail Id</label>
+                          <input type="text" name="email" id="email" autocomplete="off" #email="ngModel" class="form-control" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  ngModel>  
+                     <div class="help-block" *ngIf="email.errors?.required && email.touched" class='alert text-warning'>*Email is required</div>
+                     <div class="help-block" *ngIf="email.errors?.pattern && email.touched" class='alert text-primary'>*Email is invalid</div>
+                      </div>
+                      <div class="form-group">
+                          choose Department
+                          <input type="text" name="branch" id="course" #ref7="ngModel" class="form-control" [attr.disabled]="true" [(ngModel)]="branch">
+                            <!-- <select name="branch" id="course" #ref7="ngModel" class="form-control" ngModel>
+                             <option value="civil">{{branch}}</option>
+                             <option value="mechanical">{{branch}}</option>
+                             <option value="ece">{{branch}}</option>
+                             <option value="cse">{{branch}}</option>
+                           </select> -->
+                           <!-- <div *ngIf=" ref7.touched && ref7.invalid " class="alert alert-danger">choose branch
+                          </div> -->
+                        </div>
+                        <div class="form-group">
+                          <label for="ad">Address</label>
+                          <textarea name="address" id="ad" #ref8="ngModel" autocomplete="off" class="form-control"  required ngModel>  </textarea>
+                          <div *ngIf=" ref8.touched && ref8.invalid " class="alert text-danger">
+                            *Address is required
+                       </div>
+                        </div>
+                  
+                      <div class="form-group">
+                          <label for="year">Year</label>
+                          <input type="number" name="year" id="year" autocomplete="off" #ref9="ngModel" class="form-control" required pattern="\d\d\d\d" ngModel>  
+                          <div *ngIf=" ref9.touched && ref9.invalid " class="alert text-danger">
+                               *Year must have four digits
+                          </div>
+                      </div>
+                     
+                        
+                      <div class="form-group">
+                          <label for="ssc">SSC %</label>
+                          <input type="number" name="ssc" id="ssc" #ref10="ngModel" autocomplete="off" class="form-control"  required ngModel>  
+                          <div *ngIf=" ref10.touched && ref10.invalid " class="alert text-danger">
+                            *SSC percentage is required
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inter">Inter %</label>
+                          <input type="number" name="inter" id="inter" #ref11="ngModel"autocomplete="off" class="form-control"  required ngModel>  
+                          <div *ngIf=" ref11.touched && ref11.invalid " class="alert text-danger">
+                            *Inter percentage is required
+                          </div>
+                        </div>
+                  </form>
+             </div>
+                        
+      
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" type="submit" data-dismiss="modal" [disabled]="ref.invalid" (click)="registerStudent(ref.value);ref.reset()">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+ </div>
+ <div class="col-3">
+  <div class="text-left text-light">
+    <button type="button" class="btn btn-success" (click)="downloadPDF()">  <i class="fas fa-file-pdf"></i>Download pdf</button>
+  </div>
+ </div> 
+ <div class="col-3">
+  <div class="text-right">
+    <button type="submit" class="btn btn-success" (click)="downloadFile()"> <i class="far fa-file-excel"></i>Download Excel</button>
+  </div>
+ </div>
+ <div class="col-3">
+    <div class="text-right">
+    <label for="year" type="button"><b>Sort by year</b></label>
+
+    <select class="drop-down" #refchange (change)="changeYear(refchange.value)" ngModel id="year">
+      <option value="all">All</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+    </select>
+</div>
+ </div> 
+</div>
+
+    <div class="table" style="overflow-x:auto;" height="496px" width="717px">
+      <thead>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Gender</th>
+        <th>PhoneNumber</th>
+        <th>mail</th>
+        <th>Department</th>
+        <th>Address</th>
+        <th>Year</th>
+        <th>SSC</th>
+        <th>Inter</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+      </thead>
+      <tr *ngFor="let m of fromServer  | common: commonTerm">
+        <td>{{m.firstname}}</td>
+        <td>{{m.lastname}}</td>
+        <td>{{m.gender}}</td>
+        <td>{{m.mobile}}</td>
+        <td>{{m.email}}</td>
+        <td>{{m.branch}}</td>
+        <td>{{m.address}}</td>
+        <td>{{m.year}}</td>
+        <td>{{m.ssc}}</td>
+        <td>{{m.inter}}</td>
+        <td>
+          <div class="text-center">
+            <button  class="btn btn-success"data-target="#m2" (click)="update(m)" data-toggle="modal">Edit</button>
+            </div>
+            <div class="modal" id="m2">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    Update Student Details
+                      <button class="close" data-dismiss="modal" class="btn btn-danger">X</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container">
+                        <h3 class="text-info">Update Student Details</h3>   
+                   </div>
+                   <form #refm="ngForm" (ngSubmit)="updateStudent(refm.value)">
+                    <div class="form-group">
+                        <label for="fn">FirstName</label>
+                        <input type="text" name="firstname" #ref1="ngModel" id="fn" autocomplete="off" [(ngModel)]="updatevariable.firstname" class="form-control"  required   ngModel>
+                        <div *ngIf=" ref1.touched && ref1.invalid " class="alert alert-danger">
+                            Firstname is Required 
+                        </div>
+                    </div>   
+                    <div class="form-group">
+                        <label for="ln">LastName</label>
+                        <input type="text" name="lastname" id="ln"#ref2="ngModel" autocomplete="off" class="form-control"  [(ngModel)]="updatevariable.lastname" ngModel>  
+                        <div *ngIf=" ref1.touched && ref1.invalid " class="alert alert-danger">
+                          lastname is Required 
+                        </div>
+                    </div>    
+                    <div class="form-check">
+                        <label for="" class="form-check-label">Gender</label> <br> 
+                        <input type="radio" name="gender" id="g1" value="male" #ref4="ngModel" class="form-check-input" required  [(ngModel)]="updatevariable.gender" ngModel>
+                        <label for="g1" class="form-check-label">Male</label><br>
+                        <input type="radio" name="gender" id="g2" value="female" #ref4="ngModel" class="form-check-input" required  [(ngModel)]="updatevariable.gender" ngModel>
+                        <label for="g2" class="form-check-label">Female</label><br>
+                        <div *ngIf=" ref4.touched && ref4.invalid " class="alert alert-danger">Gender is Required 
+                        </div>
+                     </div> 
+                     <div class="form-group">
+                        <label for="ph">Phone Number</label>
+                        <input type="number" name="mobile" id="ph" autocomplete="off" [attr.disabled]="true" #ref5="ngModel" class="form-control"  [(ngModel)]="updatevariable.mobile" required pattern="\d\d\d\d\d\d\d\d\d\d" ngModel>  
+                        <div *ngIf=" ref5.touched && ref5.invalid " class="alert alert-danger">phoneNumber Must contain 10 Digits 
+                        </div>
+                    </div>
+                    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                        <label for="email" class="control-label">E-Mail Id</label>
+                        <input type="text" name="email" id="email" autocomplete="off" #email="ngModel" class="form-control"  [(ngModel)]="updatevariable.email" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  ngModel>  
+                   <div class="help-block" *ngIf="email.errors?.required && email.touched" class='alert alert-warning'> email is required</div>
+                   <div class="help-block" *ngIf="email.errors?.pattern && email.touched" class='alert alert-primary'> E-mail is invalid</div>
+                    </div>
+                    <div class="form-group">
+                        choose Department
+                            <input type="text"  name="branch" id="course" class="form-control" [attr.disabled]="true" [(ngModel)]="updatevariable.branch">
+                       
+                      </div>
+                      <div class="form-group">
+                        <label for="ad">Address</label>
+                        <textarea name="address" id="ad" #ref8="ngModel" autocomplete="off" class="form-control"  [(ngModel)]="updatevariable.address" required ngModel>  </textarea>
+                        <div *ngIf=" ref8.touched && ref8.invalid " class="alert alert-danger">
+                            Address is required
+                       </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" name="year" id="year" autocomplete="off" #ref9="ngModel" class="form-control"  [(ngModel)]="updatevariable.year" required pattern="\d\d\d\d" ngModel>  
+                        <div *ngIf=" ref9.touched && ref9.invalid " class="alert alert-danger">
+                             Year must have four digits
+                        </div>
+                    </div>
+                   
+                      
+                    <div class="form-group">
+                        <label for="ssc">SSC %</label>
+                        <input type="number" name="ssc" id="ssc" #ref10="ngModel" autocomplete="off" class="form-control"  [(ngModel)]="updatevariable.ssc" required ngModel>  
+                        <div *ngIf=" ref9.touched && ref9.invalid " class="alert alert-danger">
+                          ssc percentage is required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inter">Inter %</label>
+                        <input type="number" name="inter" id="inter" #ref11="ngModel"autocomplete="off" class="form-control"   [(ngModel)]="updatevariable.inter" ngModel>  
+                        <div *ngIf=" ref9.touched && ref9.invalid " class="alert alert-danger">
+                          inter percentage is required
+                        </div>
+                      </div>
+                </form>
+  
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-success" type="submit" data-dismiss="modal" (click)="updateStudent(refm.value)">UPDATE</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </td>
+        <td>
+          <button class="btn btn-danger" type="submit"(click)="deleteStudent(m)">Delete</button>
+        </td> 
+      </tr>
+    </div>

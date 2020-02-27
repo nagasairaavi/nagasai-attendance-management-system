@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h3 class="text-center">Generate ID</h3>
+        <form #formRef="ngForm" (ngSubmit)="generateId(formRef.value);formRef.reset()">
+            <!--username-->
+            <div class="form-group">
+                <label for="year"><b>Year</b></label>
+                <input type="number" id="year" name="year" class="form-control" autocomplete="off" ngModel>
+            </div>
+            <div class="form-group">
+                <b>choose Branch</b><br>
+                <select name="branch" class="form-control" ngModel>
+                    <option value=""></option>
+                    <option value="civil">CIVIL</option>
+                    <option value="mechanical">MECHANICAL</option>
+                    <option value="ece">ECE</option>
+                    <option value="cse">CSE</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <b>Branch code</b><br>
+                <select name="branchcode"  class="form-control" ngModel>
+                    <option value=""></option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                </select>
+            </div>
+<!--           
+            <div class="form-group">
+                <label for="sno"><b>serial no</b></label>
+                <input type="number" id="sno" name="sno" class="form-control" autocomplete="off" ngModel>
+            </div> -->
+            <!--login button-->
+            <div class="text-center">
+                <button type="submit" class="btn btn-success"><b>GenerateId</b></button>
+            </div>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>
+ <table class="table">
+    <thead>
+      <th>Year of join</th>
+      <th>branch name</th>
+      <th>branch code</th>
+    </thead>
+
+    <tr *ngFor="let l of data1">
+      <td>{{l.year}}</td>
+      <td>{{l.branch}}</td>
+      <td>{{l.branchcode}}</td>
+    </tr>
+
+  </table>

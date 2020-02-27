@@ -1,0 +1,33 @@
+<div class="row" style="margin-top: 63px;">
+    <div class="card-deck">
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="../assets/cb.jpg" height="80%" width="100%" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">CIVIL</h4>
+              <a type="button" class="btn btn-primary text-white" type="submit" (click)="readBranch('civil')" >Read data</a>
+            </div>
+        </div>
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="../assets/mb.jpg"  height="80%" width="100%"  alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">MECH</h4>
+              <button class="btn btn-primary"  type="submit" (click)="readBranch('mechanical')" >Read data</button>
+            </div>
+        </div>
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="../assets/eb.jpg"  height="80%" width="100%"  alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">ECE</h4>
+              <button class="btn btn-primary"  type="submit" (click)="readBranch('ece')" >Read data</button>
+            </div>
+        </div>
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="../assets/cse.jpg"  height="80%"  width="100%"  alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">CSE</h4>
+              <button class="btn btn-primary" type="submit" (click)="readBranch('cse')" >Read data</button>
+            </div>
+        </div>  
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-3">
+         <!-- A vertical navbar -->
+    <nav class="navbar bg-dark">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink='readattendence'>Attendence</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white"routerLink="readmarks">Marks</a>
+          </li>
+        </ul>
+        </nav>
+        <div class="card">
+            <img class="card-img-top" src="../assets/student.jpg" height="230px" width="500px" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">{{this.profile.firstname}} {{this.profile.lastname}}</h4>
+               <!--creation of a modal-->
+                <div class="text-center">
+                  <button  class="btn btn-success"data-target="#m" data-toggle="modal" >view profile</button>
+                </div>
+                <div class="modal" id="m">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                       <div class="ml-auto">
+                        <button class="close" data-dismiss="modal" class="btn btn-danger  ">X</button>
+                       </div>
+                      </div>
+                    <div class="modal-body"> 
+                      <div class="jumbotron">
+                        <div class="table border-less">
+                          
+                                <tr>
+                                    <td><b>First name:</b></td>
+                                    <td>{{this.profile.firstname}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Last name:</b></td>
+                                    <td>{{this.profile.lastname}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gender:</b></td>
+                                    <td>{{this.profile.gender}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mobile:</b></td>
+                                    <td>{{this.profile.mobile}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Email:</b></td>
+                                    <td>{{this.profile.email}}</td></tr>
+                                <tr>  
+                                    <td><b>Branch:</b></td>
+                                    <td>{{this.profile.branch}}</td></tr>
+                                <tr>
+                                    <td><b>Address:</b></td>
+                                    <td>{{this.profile.address}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Year of joining:</b></td>
+                                    <td>{{this.profile.year}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SSC%:</b></td>
+                                    <td>{{this.profile.ssc}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>INTER%:</b></td>
+                                    <td>{{this.profile.inter}}</td>
+                                </tr>
+                             
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+      <h3>welcome {{this.profile.firstname}}</h3>
+      <router-outlet></router-outlet>
+    </div>
+</div>

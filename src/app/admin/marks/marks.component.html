@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-5 jumbotron">
+        <form #formRef="ngForm" (ngSubmit)="marksData(formRef.value)">
+            <div class="form-group">
+                <b>choose year</b><br>
+                <select name="year"  ngModel id="year">
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <b>choose Branch</b><br>
+                <select name="branch" class="form-control" ngModel>
+                    <option value=""></option>
+                    <option value="civil">CIVIL</option>
+                    <option value="mechanical">MECHANICAL</option>
+                    <option value="ece">ECE</option>
+                    <option value="cse">CSE</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="myFile">upload marks sheet</label>
+                <input type="file" name="attendence" class="form-control"
+                (change)="fileUpload($event)" ngModel>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-success"><b>submit</b></button>
+            </div>
+        </form>
+        
+    </div>
+    <div class="col-7">
+        
+        <div class="table"  style="overflow-x:auto;" height="496px" width="717px" >
+            <thead>
+                <th>student id</th>
+                <th>year</th>
+                <th>branch</th>
+                <th>subject1</th>
+                <th>subject2</th>
+                <th>subject3</th>
+                <th>subject4</th>
+                <th>subject5</th>
+                <th>subject6</th>
+                <th>Lab1</th>
+                <th>Lab2</th>
+                <th>Total</th>
+                
+            </thead>
+            <tr *ngFor ="let i of this.marks">
+                <td>{{i.studentid}}</td>
+                <td>{{i.year}}</td>
+                <td>{{i.branch}}</td>
+                <td>{{i.subject1}}</td>
+                <td>{{i.subject2}}</td>
+                <td>{{i.subject3}}</td>
+                <td>{{i.subject4}}</td>
+                <td>{{i.subject5}}</td>
+                <td>{{i.subject6}}</td>
+                <td>{{i.lab1}}</td>
+                <td>{{i.lab2}}</td>
+                <td>{{i.total}}</td>
+            </tr>
+        </div>
+    </div>
+</div>

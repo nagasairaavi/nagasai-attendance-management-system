@@ -1,0 +1,57 @@
+<div class="container">  
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12 jumbotron">
+            <div class="contact-contents text-center">
+                <div class="single-contact mb-65">
+                    <div class="contact-icon">
+                        <img src="../assets/location.png" height="60px" width="60px" alt="contact">
+                    </div>
+                    <div class="contact-add">
+                        <h3>Address</h3>
+                        <p>FIU university, <br> Thimmapur, Karimnagar, <br> Telangana - 505481</p>
+                    </div>
+                </div>
+                <div class="single-contact mb-65">
+                    <div class="contact-icon">
+                        <img src="../assets/lll.jpg" height="60px" width="60px" alt="contact">
+                    </div>
+                    <div class="contact-add">
+                        <h3>Contact</h3>
+                        <p>Contact Number:9000000009</p>
+                        
+                    </div>
+                </div>
+                <div class="single-contact">
+                    <div class="contact-icon">
+                        <img src="../assets/mail.jpg"  height="50px" width="60px" alt="contact">
+                    </div>
+                    <div class="contact-add">
+                        <h3>Mail</h3>
+                        <p>info@fiu.ac.in.com</p>
+                        <p>www.fiu.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <!-- <div class="vl"></div> -->
+        <div class="col-md-6 col-sm-6 col-xs-12 text-center">
+            <h3 class="text-center">Feedback/Suggestions</h3>
+            <form #formRef="ngForm" (ngSubmit)="submitReview(formRef.value)">
+                <!--username-->
+                <div class="form-group">
+                    
+                    <input type="text" placeholder="Subject" name="subject" class="form-control" autocomplete="off" ngModel>
+                </div>
+                <div class="form-group">
+                    <textarea type="textarea" name="matter" cols="25" rows="15" class="form-control" ngModel></textarea>
+                   
+                </div>
+                <!--login button-->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success"><b>Submit</b></button>
+                </div>
+            </form>
+        </div>
+
+    </div> 
+</div> 
