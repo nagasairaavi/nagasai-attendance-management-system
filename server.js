@@ -483,4 +483,4 @@ app.post('/forgetpassword',(request,response)=>{
 
 //port
 const port=999;
-app.listen(port,()=>{console.log(`server listening on ${port}...`)});
+app.listen(process.env.PORT || port,()=>{console.log(`server listening on ${port}...`)});
