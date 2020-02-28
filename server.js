@@ -337,7 +337,7 @@ data["ops"],"message":"Attendence Sheet uploaded successfully"});
 })
 //login
 app.post('/login',(request,response)=>{
-    //readobject
+//readobject
     console.log(request.body);
     dbo.collection("studentcollection").findOne({studentid:request.body.id},(error,stuobj)=>{
         if(error){
